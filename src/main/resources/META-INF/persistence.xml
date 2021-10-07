@@ -6,6 +6,9 @@
 	
 	
 	<persistence-unit name="loja" transaction-type="RESOURCE_LOCAL">
+	<!-- <class>bt.com.alura.loja.modelo.Produto</class> quando utilizado Hibernate não é necessário mapear a classe aqui,porém 
+	se uma for declarada é necessário declarar todas. -->
+		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
 			<property name="javax.persistence.jdbc.driver" value="jdbc:h2:mem:loja"/>
