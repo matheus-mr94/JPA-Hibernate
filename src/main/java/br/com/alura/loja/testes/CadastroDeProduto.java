@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import br.com.alura.loja.dao.CategoriaDao;
 import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.modelo.Categoria;
+import br.com.alura.loja.modelo.CategoriaId;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
 
@@ -44,6 +45,10 @@ public class CadastroDeProduto {
 		produtoDao.cadastrar(celular);
 
 		em.getTransaction().commit();
+		
+		//Para realizar buscar é necessário passar a classe que representa a chave primária e dentro da classe os atributos
+		em.find(Categoria.class, new CategoriaId("CELULARES", "xpto"));
+		
 		em.close();
 	}
 
