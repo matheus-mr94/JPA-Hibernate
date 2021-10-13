@@ -1,6 +1,7 @@
 package br.com.alura.loja.testes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 
@@ -15,15 +16,12 @@ import br.com.alura.loja.modelo.Pedido;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
 
-public class PerformanceConsultas {
-
+public class TesteCriteria {
 	public static void main(String[] args) {
 		popularBancoDeDados();
 		EntityManager em = JPAUtil.getEntityManager();
-		PedidoDao pedidoDao = new PedidoDao(em);
-		Pedido pedido = pedidoDao.buscarPedidoComCliente(1l);
-		em.close();
-		System.out.println(pedido.getCliente().getNome());
+		ProdutoDao produtoDao = new ProdutoDao(em);
+		produtoDao.buscarPorParametrosComCriteria(null, null, LocalDate.now());
 	}
 
 	private static void popularBancoDeDados() {
